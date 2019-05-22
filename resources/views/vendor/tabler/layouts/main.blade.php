@@ -21,7 +21,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @section('styles')
-    <link href="{{ mix('/css/tabler.css') }}" rel="stylesheet">
+      {{--<link href="{{ mix('/css/tabler.css') }}" rel="stylesheet">--}}
+      <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet" />
+
     @show
     @stack('head')
   </head>
@@ -38,9 +40,17 @@
 
     </div>
     @section('scripts')
-      <script src="{{ mix('/js/manifest.js') }}" charset="utf-8"></script>
-      <script src="{{ mix('/js/vendor.js') }}" charset="utf-8"></script>
-    	<script src="{{ mix('/js/tabler.js') }}" charset="utf-8"></script>
+      {{--<script src="{{ mix('/js/manifest.js') }}" charset="utf-8"></script>--}}
+      {{--<script src="{{ mix('/js/vendor.js') }}" charset="utf-8"></script>--}}
+      {{--<script src="{{ mix('/js/tabler.js') }}" charset="utf-8"></script>--}}
+      <script src="{{ asset('assets/js/vendors/jquery-3.2.1.min.js') }}"></script>
+      <script src="{{ asset('assets/js/require.min.js') }}"></script>
+      <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+      <script>
+          requirejs.config({
+              baseUrl: '.'
+          });
+      </script>
   	@show
   	@stack('body')
   </body>
